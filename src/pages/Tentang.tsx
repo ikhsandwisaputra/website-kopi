@@ -7,7 +7,7 @@ const Tentang: React.FC = () => {
         {/* Gambar */}
         <div className="w-full">
           <img
-            src="/images/tentang.jpeg"
+            src="images/tentang.jpeg"
             alt="Tentang Kami"
             className="w-full h-auto rounded-2xl shadow-lg"
           />
