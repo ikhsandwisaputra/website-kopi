@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 function App() {
   return (
   <>
- <Router>      
+ <Router basename="/website-kopi">      
  <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Beranda />} />
