@@ -1,54 +1,143 @@
-# React + TypeScript + Vite
+Berikut contoh README yang profesional dan terstruktur untuk proyek website kopi menggunakan React + TypeScript dan Supabase:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# ☕ Website Kopi – React + TypeScript + Supabase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Selamat datang di proyek **Website Kopi**, sebuah aplikasi web modern yang dibuat menggunakan **React + TypeScript** untuk frontend dan **Supabase** untuk backend & database. Aplikasi ini menampilkan daftar produk kopi, login pengguna, serta fitur CRUD data kopi dengan gambar.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Fitur Utama
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+* 🔐 Autentikasi pengguna (login/logout)
+* 📦 CRUD data kopi (tambah, baca, edit, hapus)
+* 🖼️ Upload dan tampilkan gambar produk kopi
+* 🎨 UI responsif dan modern menggunakan Tailwind CSS
+* ☁️ Terintegrasi penuh dengan Supabase (database, storage, dan auth)
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+| Teknologi    | Keterangan                                |
+| ------------ | ----------------------------------------- |
+| React        | Library utama untuk membangun UI          |
+| TypeScript   | Superset JavaScript untuk type safety     |
+| Tailwind CSS | Utility-first CSS framework untuk styling |
+| Supabase     | Backend-as-a-service (auth, DB, storage)  |
+| React Router | Routing SPA antar halaman                 |
+| Vite         | Bundler dan dev server                    |
+
+---
+
+## 📁 Struktur Folder
+
+```
+src/
+├── components/       # Komponen UI reusable
+├── pages/            # Halaman utama (Beranda, Login, Tambah Kopi)
+├── types/            # Tipe data TypeScript
+├── supabase/         # Konfigurasi Supabase client
+├── App.tsx           # Root component
+├── main.tsx          # Entry point aplikasi
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Cara Menjalankan Proyek
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/username/web-kopi.git
+cd web-kopi
 ```
+
+### 2. Install Dependensi
+
+```bash
+npm install
+```
+
+### 3. Konfigurasi Supabase
+
+Buat file `.env` di root proyek:
+
+```bash
+VITE_SUPABASE_URL=https://xxxxx.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+> 🔐 Dapatkan URL & Anon Key dari \[Supabase Project Settings > API].
+
+### 4. Jalankan Proyek
+
+```bash
+npm run dev
+```
+
+Buka di browser: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🧪 Supabase Setup
+
+### Tabel: `daftar-kopi`
+
+| Kolom     | Tipe    | Keterangan              |
+| --------- | ------- | ----------------------- |
+| id        | UUID    | Primary key (auto)      |
+| nama      | Text    | Nama kopi               |
+| harga     | Integer | Harga kopi dalam rupiah |
+| deskripsi | Text    | Deskripsi singkat       |
+| gambar    | Text    | URL gambar dari Storage |
+
+### Bucket: `kopi-images`
+
+* Gunakan bucket publik
+* Buat folder `kopi/` opsional
+* Aktifkan policy upload untuk pengguna authenticated
+
+### Auth
+
+* Aktifkan email login
+* Tambahkan policy `SELECT`, `INSERT`, `DELETE` sesuai kebutuhan untuk role `authenticated` pada tabel
+
+---
+
+## 📸 Screenshot
+
+### 💻 Beranda
+
+Menampilkan daftar kopi dengan gambar, deskripsi, dan harga.
+
+### ➕ Form Tambah Kopi
+
+Form input nama, harga, deskripsi, dan upload gambar.
+
+---
+
+## 📌 TODO (Optional)
+
+* ✅ Login & logout dengan session
+* ✅ Validasi form tambah kopi
+* ⬜️ Edit & Hapus data kopi
+* ⬜️ Role admin untuk kelola produk
+
+---
+
+## 👨‍💻 Kontributor
+
+* \[Nama Anda] - Developer
+* [@GitHubHandle](https://github.com/username)
+
+---
+
+## 📄 Lisensi
+
+Proyek ini menggunakan lisensi [MIT](LICENSE).
+
+---
+
+Jika kamu butuh versi Markdown-nya untuk langsung digunakan, beri tahu saja, saya bisa kirimkan dalam format `.md`. Mau ditambahkan link deploy juga?
